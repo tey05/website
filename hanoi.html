@@ -1,0 +1,18 @@
+<html>
+<script>
+function Hanoi(n,source,target,temp)
+{
+ if(n==1)
+    { 
+    document.writeln('Move disk from ' + source + ' to ' + target + '<br>');
+    }
+ else 
+    {
+    Hanoi(n-1,source,temp,target);
+    Hanoi(1,source,target,temp);
+    Hanoi(n-1,temp,target,source);
+    }  
+}
+ Hanoi(7,1,2,3)
+</script> 
+</html>
