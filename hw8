@@ -1,0 +1,2658 @@
+// homework2
+// 1
+import java.util.*;
+public class Calc
+{
+   public static void main(String [] args)
+   {
+      int n1, n2, sum, product;
+      Scanner scanner = new Scanner(System.in);
+      
+      System.out.println("Enter an integer:");
+      n1 = scanner.nextInt();
+      
+      System.out.println("Enter another integer:");
+      n2 = scanner.nextInt();
+      
+      sum = n1 + n2;
+      product = n1 * n2;
+      System.out.println("The sum is "+ sum+ ", and the product is "+ product);
+   }
+}
+
+// 2
+import java.util.*;
+public class RectangleArea
+{
+   public static void main(String [] args)
+   {
+      double length, breadth, area;
+      Scanner scanner = new Scanner(System.in);
+      
+      System.out.println("Enter length of the rectangle:");
+      length = scanner.nextDouble();
+      
+      System.out.println("Enter breadth of the rectangle:");
+      breadth = scanner.nextDouble();
+      
+      area = length * breadth;
+      System.out.println("The area of the rectangle is "+ area);
+   }
+}
+
+// 3
+import java.util.*;
+public class StudentInfo
+{
+   public static void main(String [] args)
+   {
+      String name, result;
+      int age;
+      double gpa;
+      Scanner scanner = new Scanner(System.in);
+      
+      System.out.println("Please enter student information (Name age GPA) in one line like this: John Smith 20 3.4:");
+      name = scanner.next();
+      name = name + " "+ scanner.next();
+      age = scanner.nextInt();
+      gpa = scanner.nextDouble();
+      
+      result = "Student named "+ name + " is "+ age +" years old and has "+ gpa + " GPA";
+      System.out.println(result);
+   }
+}
+
+// 4
+public class Remove38
+{
+   public static String remove38(String x)
+   {
+      String part1 = "", part2 = "", part3 = "";
+      if (x.length() > 8)
+      {
+         part1 = x.substring(0,2);
+         part2 = x.substring(3,7);
+         part3 = x.substring(8);
+      }
+      else if (x.length() == 8)
+      {
+         part1 = x.substring(0,2);
+         part2 = x.substring(3,7);
+      }
+      else if (x.length() > 3)
+      {
+         part1 = x.substring(0,2);
+         part2 = x.substring(3);
+      }
+      else if (x.length() == 3)
+      {
+         part1 = x.substring(0,2);
+      }
+      else
+      {
+         part1 = x;
+      }
+      return part1 + part2 + part3;
+   }
+   public static void main(String [] args)
+   {
+      System.out.println(remove38("ab"));
+      System.out.println(remove38("abc"));
+      System.out.println(remove38("abcdefgh"));
+      System.out.println(remove38("abcdefghi"));
+   }
+}
+
+// lab3
+// 3
+import javax.swing.*;
+import java.awt.*;
+
+public class StarDrawing extends Canvas
+{
+   
+   // 绘制五角星的方法
+   public void paint(Graphics g)
+   {
+      super.paint(g);
+      
+      // 设置绘制颜色为黄色
+      g.setColor(Color.YELLOW);
+      
+      // 五角星的中心位置
+      int centerX = 150;
+      int centerY = 150;
+      // 五角星的外半径和内半径
+      int outerRadius = 100;
+      int innerRadius = 40;
+      
+      // 计算五角星的顶点
+      int[] xPoints = new int[10];
+      int[] yPoints = new int[10];
+      
+      for (int i = 0; i < 5; i++)
+      {
+         // 计算外顶点
+         double angleOuter = Math.PI / 5 * (i * 2 + 1); // 外角度
+         xPoints[i * 2] = (int) (centerX + outerRadius * Math.cos(angleOuter));
+         yPoints[i * 2] = (int) (centerY - outerRadius * Math.sin(angleOuter));
+         
+         // 计算内顶点
+         double angleInner = Math.PI / 5 * (i * 2 + 2); // 内角度
+         xPoints[i * 2 + 1] = (int) (centerX + innerRadius * Math.cos(angleInner));
+         yPoints[i * 2 + 1] = (int) (centerY - innerRadius * Math.sin(angleInner));
+      }
+      
+      // 绘制五角星
+      g.fillPolygon(xPoints, yPoints, 10);
+   }
+   
+   public static void main(String[] args)
+   {
+      // 创建 JFrame 窗口
+      JFrame frame = new JFrame("Draw Optimized Yellow Star");
+      Canvas canvas = new StarDrawing();
+      
+      // 设置窗口大小和关闭操作
+      frame.setSize(400, 400);
+      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      
+      // 将画布添加到窗口并显示
+      frame.add(canvas);
+      frame.setVisible(true);
+   }
+}
+
+// 4
+import javax.swing.*;
+import java.awt.*;
+
+public class StarDrawing extends Canvas
+{
+   
+   // 绘制五角星的方法
+   public void paint(Graphics g)
+   {
+      super.paint(g);
+      
+      // 设置绘制颜色为黄色
+      g.setColor(Color.YELLOW);
+      
+      // 五角星的中心位置
+      int centerX = 150;
+      int centerY = 150;
+      // 五角星的外半径和内半径
+      int outerRadius = 100;
+      int innerRadius = 40;
+      
+      // 计算五角星的顶点
+      int[] xPoints = new int[10];
+      int[] yPoints = new int[10];
+      
+      for (int i = 0; i < 5; i++)
+      {
+         // 计算外顶点
+         double angleOuter = Math.PI / 5 * (i * 2 + 1); // 外角度
+         xPoints[i * 2] = (int) (centerX + outerRadius * Math.cos(angleOuter));
+         yPoints[i * 2] = (int) (centerY - outerRadius * Math.sin(angleOuter));
+         
+         // 计算内顶点
+         double angleInner = Math.PI / 5 * (i * 2 + 2); // 内角度
+         xPoints[i * 2 + 1] = (int) (centerX + innerRadius * Math.cos(angleInner));
+         yPoints[i * 2 + 1] = (int) (centerY - innerRadius * Math.sin(angleInner));
+      }
+      
+      // 绘制五角星
+      g.fillPolygon(xPoints, yPoints, 10);
+   }
+   
+   public static void main(String[] args)
+   {
+      // 创建 JFrame 窗口
+      JFrame frame = new JFrame("Draw Optimized Yellow Star");
+      Canvas canvas = new StarDrawing();
+      
+      // 设置窗口大小和关闭操作
+      frame.setSize(400, 400);
+      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      
+      // 将画布添加到窗口并显示
+      frame.add(canvas);
+      frame.setVisible(true);
+   }
+}
+
+// 6
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import javax.imageio.ImageIO;
+import javax.swing.*;
+
+public class ChineseFlag extends JFrame
+{
+   
+   public ChineseFlag()
+   {
+      setTitle("Chinese Flag");
+      setSize(800, (int) (800 * 2 / 3));
+      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      
+      Canvas canvas = new Canvas()
+      {
+         @Override
+         public void paint(Graphics g)
+         {
+            drawChineseFlag(g);
+         }
+      };
+      
+      add(canvas);
+      setVisible(true);
+      saveAsImage();
+   }
+   
+   private void drawChineseFlag(Graphics g)
+   {
+      // 国旗的宽和高
+      int width = 800;
+      int height = (int) (width * 2 / 3);
+      
+      // 红色填充整个旗面
+      g.setColor(Color.RED);
+      g.fillRect(0, 0, width, height);
+      
+      int S = height / 20 * 3; // 大五角星尺寸
+      int s = height / 20; // 小五角星尺寸
+      
+      // 大五角星的中心坐标（左上角为原点）
+      int SX = width / 2 / 15 * 5;
+      int SY = height / 4;
+      
+      // 绘制大五角星
+      dS(g, SX, SY, S, 0, Color.YELLOW);
+      
+      // 小五角星的中心坐标（左上角为原点），四个小五角星的相对位置
+      int sx1 = width / 2 / 15 * 10;
+      int sy1 = height / 2 / 10 * 2;
+      double r1 = Math.atan2(sx1 - SX, sy1 - SY);
+      
+      int sx2 = width / 2 / 15 * 12;
+      int sy2 = height / 2 / 10 * 4;
+      double r2 = Math.atan2(sx2 - SX, sy2 - SY);
+      
+      int sx3 = width / 2 / 15 * 12;
+      int sy3 = height / 2 / 10 * 7;
+      double r3 = Math.atan2(sx3 - SX, sy3 - SY);
+      
+      int sx4 = width / 2 / 15 * 10;
+      int sy4 = height / 2 / 10 * 9;
+      double r4 = Math.atan2(sx4 - SX, sy4 - SY);
+      
+      // 绘制四颗小五角星
+      dS(g, sx1, sy1, s, -1 * r1, Color.YELLOW);
+      dS(g, sx2, sy2, s, -1 * r2, Color.YELLOW);
+      dS(g, sx3, sy3, s, -1 * r3, Color.YELLOW);
+      dS(g, sx4, sy4, s, -1 * r4, Color.YELLOW);
+   }
+   
+   private void saveAsImage()
+   {
+      BufferedImage image = new BufferedImage(800, (int) (800 * 2 / 3), BufferedImage.TYPE_INT_RGB);
+      Graphics2D g2d = image.createGraphics();
+      
+      // Draw the flag on the BufferedImage
+      drawChineseFlag(g2d);
+      
+      // Save the image
+      try
+      {
+         ImageIO.write(image, "PNG", new File("ChineseFlag.png"));
+      }
+      catch (Exception e)
+      {
+         e.printStackTrace();
+      }
+      
+      g2d.dispose();
+   }
+   
+   private void dS(Graphics g, int x, int y, int size, double yD, Color color)
+   {
+      g.setColor(color);
+      int[] xPoints = new int[10];
+      int[] yPoints = new int[10];
+      
+      double pi = Math.PI;
+      int R = size;
+      int r = (int) (R * Math.sin(pi / 10) / Math.cos(pi / 5));
+      
+      // 计算五角星顶点坐标
+      for (int i = 0; i < 5; i++)
+      {
+         xPoints[2 * i] = (int) (x - R * Math.cos(pi / 2 + i * 2 * pi / 5 + yD));
+         yPoints[2 * i] = (int) (y - R * Math.sin(pi / 2 + i * 2 * pi / 5 + yD));
+         xPoints[2 * i + 1] = (int) (x - r * Math.cos(pi / 2 + pi / 5 + i * 2 * pi / 5 + yD));
+         yPoints[2 * i + 1] = (int) (y - r * Math.sin(pi / 2 + pi / 5 + i * 2 * pi / 5 + yD));
+      }
+      
+      g.fillPolygon(xPoints, yPoints, 10);
+   }
+   
+   public static void main(String[] args)
+   {
+      SwingUtilities.invokeLater(() -> new ChineseFlag());
+   }
+}
+
+// lab4
+// 2
+void paintStar(int [][] vertaxCoordinates, Graphics g)
+{
+   int [] x = new int[vertaxCoordinates.length];
+   int [] y = new int[vertaxCoordinates.length];
+   for (int i=0; i < vertaxCoordinates.length; i++)
+   {
+      x[i] = vertaxCoordinates[i][0];
+      y[i] = vertaxCoordinates[i][1];
+   }
+   g.paintPolygon(x,y);
+}
+
+// 3
+void paint(Graphics g)
+{
+   
+}
+
+// lab5
+// 8
+import java.util.Scanner;
+
+public class SumNumbers
+{
+   public static void main(String[] args)
+   {
+      Scanner scanner = new Scanner(System.in);
+      System.out.println("Enter two or more numbers (separated by space): ");
+      
+      double sum = 0;
+      int count = 0;
+      
+      String input = scanner.nextLine();
+      String[] numbers = input.split("\\s+");
+      
+      for (String number : numbers)
+      {
+         sum += Double.parseDouble(number);
+         count++;
+      }
+      
+      if (count > 0)
+      {
+         System.out.println("The sum is: "+ sum);
+      }
+      else
+      {
+         System.out.println("NaN");
+      }
+      
+      scanner.close();
+   }
+}
+
+// lab7
+// 5
+import java.util.*;
+public class Sum
+{
+   public static void main(String [] args)
+   {
+      double sum = 0.0;
+      Scanner s = new Scanner(System.in);
+      s.useDelimiter(" ");
+      while (true)
+      {
+         try
+         {
+            String name = s.next();
+            s.useDelimiter("\n");
+            String ds = s.next().trim();
+            if (!ds.equals("Amount"))
+            {
+               double d = Double.parseDouble(ds);
+               sum = sum + d;
+            }
+            s.useDelimiter(" ");
+         }
+         catch(Exception e)
+         {
+            break;
+         }
+      }
+      System.out.println("sum="+ sum);
+   }
+}
+
+// homework3
+// 2
+import java.util.Scanner;
+
+public class DataAnalysis
+{
+   public static void main(String[] args)
+   {
+      StringBuilder storestring = new StringBuilder();
+      Scanner s = new Scanner(System.in);
+      s.useDelimiter("\t");
+      
+      int n = 0;
+      String id, Grade, Score, Absence, Time, Start, Sub, Quiz, Order;
+      double idsum = 0, Gradesum = 0, Scoresum = 0, Absencesum = 0,
+      Timesum = 0, Startsum = 0, Subsum = 0, Quizsum = 0, Ordersum = 0;
+      double idmean, Grademean, Scoremean, Absencemean,
+      Timemean, Startmean, Submean, Quizmean, Ordermean;
+      double iddev, Gradedev, Scoredev, Absencedev,
+      Timedev, Startdev, Subdev, Quizdev, Orderdev;
+      double GradeNum;
+      
+      while (s.hasNext())
+      {
+         n++;
+         id = s.next().trim();
+         Grade = s.next().trim();
+         Score = s.next().trim();
+         Absence = s.next().trim();
+         Time = s.next().trim();
+         Start = s.next().trim();
+         Sub = s.next().trim();
+         Quiz = s.next().trim();
+         
+         s.useDelimiter("\t|\n");
+         Order = s.next().trim();
+         s.useDelimiter("\t");
+         
+         storestring.append(id).append('\t');
+         storestring.append(Grade).append('\t');
+         storestring.append(Score).append('\t');
+         storestring.append(Absence).append('\t');
+         storestring.append(Time).append('\t');
+         storestring.append(Start).append('\t');
+         storestring.append(Sub).append('\t');
+         storestring.append(Quiz).append('\t');
+         storestring.append(Order).append('\t');
+         
+         if (n == 1)
+            continue;
+         
+         switch (Grade)
+         {
+            case "A": GradeNum = 4; break;
+            case "B": GradeNum = 3; break;
+            case "C": GradeNum = 2; break;
+            case "D": GradeNum = 1; break;
+            default: GradeNum = 0; break;
+         }
+         Gradesum += GradeNum;
+         idsum += Double.parseDouble(id);
+         Scoresum += Double.parseDouble(Score);
+         Absencesum += Double.parseDouble(Absence);
+         Timesum += Double.parseDouble(Time);
+         Startsum += Double.parseDouble(Start);
+         Subsum += Double.parseDouble(Sub);
+         Quizsum += Double.parseDouble(Quiz);
+         Ordersum += Double.parseDouble(Order);
+      }
+      
+      idmean = idsum / (n - 1);
+      Grademean = Gradesum / (n - 1);
+      Scoremean = Scoresum / (n - 1);
+      Absencemean = Absencesum / (n - 1);
+      Timemean = Timesum / (n - 1);
+      Startmean = Startsum / (n - 1);
+      Submean = Subsum / (n - 1);
+      Quizmean = Quizsum / (n - 1);
+      Ordermean = Ordersum / (n - 1);
+      
+      System.out.println("idmean: "+ idmean);
+      System.out.println("Grademean: "+ Grademean);
+      System.out.println("Scoremean: "+ Scoremean);
+      System.out.println("Absencemean: "+ Absencemean);
+      System.out.println("Timemean: "+ Timemean);
+      System.out.println("Startmean: "+ Startmean);
+      System.out.println("Submean: "+ Submean);
+      System.out.println("Quizmean: "+ Quizmean);
+      System.out.println("Ordermean: "+ Ordermean);
+      
+      s = new Scanner(storestring.toString().trim()).useDelimiter("\t");
+      idsum = 0;
+      Gradesum = 0;
+      Scoresum = 0;
+      Absencesum = 0;
+      Timesum = 0;
+      Startsum = 0;
+      Subsum = 0;
+      Quizsum = 0;
+      Ordersum = 0;
+      
+      int i = 0;
+      while (s.hasNext())
+      {
+         i++;
+         id = s.next().trim();
+         Grade = s.next().trim();
+         Score = s.next().trim();
+         Absence = s.next().trim();
+         Time = s.next().trim();
+         Start = s.next().trim();
+         Sub = s.next().trim();
+         Quiz = s.next().trim();
+         s.useDelimiter("\t|\r?\n");
+         Order = s.next().trim();
+         s.useDelimiter("\t");
+         
+         if (i == 1)
+            continue;
+         
+         switch (Grade)
+         {
+            case "A": GradeNum = 4; break;
+            case "B": GradeNum = 3; break;
+            case "C": GradeNum = 2; break;
+            case "D": GradeNum = 1; break;
+            default: GradeNum = 0; break;
+         }
+         
+         idsum += Math.pow(Double.parseDouble(id) - idmean, 2);
+         Gradesum += Math.pow(GradeNum - Grademean, 2);
+         Scoresum += Math.pow(Double.parseDouble(Score) - Scoremean, 2);
+         Absencesum += Math.pow(Double.parseDouble(Absence) - Absencemean, 2);
+         Timesum += Math.pow(Double.parseDouble(Time) - Timemean, 2);
+         Startsum += Math.pow(Double.parseDouble(Start) - Startmean, 2);
+         Subsum += Math.pow(Double.parseDouble(Sub) - Submean, 2);
+         Quizsum += Math.pow(Double.parseDouble(Quiz) - Quizmean, 2);
+         Ordersum += Math.pow(Double.parseDouble(Order) - Ordermean, 2);
+      }
+      
+      iddev = Math.sqrt(idsum / (n - 1));
+      Gradedev = Math.sqrt(Gradesum / (n - 1));
+      Scoredev = Math.sqrt(Scoresum / (n - 1));
+      Absencedev = Math.sqrt(Absencesum / (n - 1));
+      Timedev = Math.sqrt(Timesum / (n - 1));
+      Startdev = Math.sqrt(Startsum / (n - 1));
+      Subdev = Math.sqrt(Subsum / (n - 1));
+      Quizdev = Math.sqrt(Quizsum / (n - 1));
+      Orderdev = Math.sqrt(Ordersum / (n - 1));
+      System.out.println("iddev: "+ iddev);
+      System.out.println("Gradedev: "+ Gradedev);
+      System.out.println("Scoredev: "+ Scoredev);
+      System.out.println("Absencedev: "+ Absencedev);
+      System.out.println("Timedev: "+ Timedev);
+      System.out.println("Startdev: "+ Startdev);
+      System.out.println("Subdev: "+ Subdev);
+      System.out.println("Quizdev: "+ Quizdev);
+      System.out.println("Orderdev: "+ Orderdev);
+   }
+}
+
+// 3
+import java.awt.*;
+import javax.swing.JFrame;
+
+class FlagCanvas extends Canvas
+{
+   private int flagWidth;
+   private int flagHeight;
+   
+   public FlagCanvas(int width)
+   {
+      flagWidth = width;
+      flagHeight = width * 2 / 3;
+   }
+   
+   @Override
+   public void paint(Graphics g)
+   {
+      // Draw the red rectangle background of the flag
+      g.setColor(Color.red);
+      g.fillRect(0, 0, flagWidth, flagHeight);
+      g.setColor(Color.white);
+      g.fillOval(flagHeight * 1 / 4, flagHeight * 1 / 4, flagHeight * 1 / 2, flagHeight * 1 / 2);
+      g.setColor(Color.red);
+      g.fillOval(flagHeight * 3 / 8, flagHeight * 3 / 10, flagHeight * 2 / 5, flagHeight * 2 / 5);
+      
+      double ratio = flagWidth / 30.0;
+      
+      paintStar(ratio * 85 / 6, ratio * 10, 5 / 2 * ratio, Math.PI, g);
+      
+   }
+   
+   int[][] vertices(double cx, double cy, double r, double angle)
+   {
+      double outerRadius = 1;
+      double innerRadius = outerRadius * Math.sin(Math.PI / 10) / Math.sin(3 * Math.PI / 10);
+      
+      double angleIncrement = (Math.PI / 5);
+      double startAngle = angle;
+      int[][] d = new int[2][10];
+      d[0] = new int[10];
+      d[1] = new int[10];
+      for (int i = 0; i < 10; i++)
+      {
+         angle = startAngle + i * angleIncrement;
+         double radius = r * ((i % 2) == 0 ? outerRadius : innerRadius);
+         double x = radius * Math.cos(angle) + cx;
+         double y = radius * Math.sin(angle) + cy;
+         d[0][i] = (int) Math.round(x);
+         d[1][i] = (int) Math.round(y);
+         System.out.println("Outer vertex: ("+ x + ", "+ y + ")");
+      }
+      return d;
+   }
+   
+   // Method to paint a five-pointed star
+   public void paintStar(double centerX, double centerY, double radius, double ang, Graphics g)
+   {
+      g.setColor(Color.white);
+      int[][] d = vertices(centerX, centerY, radius, ang);
+      g.fillPolygon(d[0], d[1], 10);
+   }
+   
+   public static void main(String[] args)
+   {
+      JFrame frame = new JFrame();
+      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      FlagCanvas canvas = new FlagCanvas(576);
+      frame.setSize(canvas.flagWidth, canvas.flagHeight);
+      frame.getContentPane().add(canvas);
+      frame.setVisible(true);
+   }
+}
+
+// lab9
+// 1
+public class UserEntryForm extends javax.swing.JFrame
+{
+   public UserEntryForm()
+   {
+      initComponents();
+   }
+   @SuppressWarnings("unchecked")
+   // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+   private void initComponents()
+   {
+      
+      jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+      jFileChooser1 = new javax.swing.JFileChooser();
+      jScrollPane1 = new javax.swing.JScrollPane();
+      jTextArea1 = new javax.swing.JTextArea();
+      jComboBox1 = new javax.swing.JComboBox<>();
+      jTextField1 = new javax.swing.JTextField();
+      submit = new javax.swing.JButton();
+      jTextField2 = new javax.swing.JTextField();
+      jMenuBar1 = new javax.swing.JMenuBar();
+      jMenu1 = new javax.swing.JMenu();
+      jMenuItem1 = new javax.swing.JMenuItem();
+      jMenuItem2 = new javax.swing.JMenuItem();
+      jMenu2 = new javax.swing.JMenu();
+      
+      jCheckBoxMenuItem1.setSelected(true);
+      jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
+      
+      setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+      
+      jTextArea1.setColumns(20);
+      jTextArea1.setRows(5);
+      jTextArea1.setText("address");
+      jScrollPane1.setViewportView(jTextArea1);
+      
+      jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]
+      {
+         "COUNTRY", "US", "USA", "CN", ""
+      }
+      ));
+      jComboBox1.setToolTipText("country");
+      jComboBox1.addActionListener(new java.awt.event.ActionListener()
+      {
+         public void actionPerformed(java.awt.event.ActionEvent evt)
+         {
+            jComboBox1ActionPerformed(evt);
+         }
+      }
+      );
+      
+      jTextField1.setText("Name");
+      jTextField1.addActionListener(new java.awt.event.ActionListener()
+      {
+         public void actionPerformed(java.awt.event.ActionEvent evt)
+         {
+            jTextField1ActionPerformed(evt);
+         }
+      }
+      );
+      
+      submit.setText("submit");
+      submit.addActionListener(new java.awt.event.ActionListener()
+      {
+         public void actionPerformed(java.awt.event.ActionEvent evt)
+         {
+            submitActionPerformed(evt);
+         }
+      }
+      );
+      
+      jTextField2.setText("Email");
+      jTextField2.addActionListener(new java.awt.event.ActionListener()
+      {
+         public void actionPerformed(java.awt.event.ActionEvent evt)
+         {
+            jTextField2ActionPerformed(evt);
+         }
+      }
+      );
+      
+      jMenu1.setText("File");
+      
+      jMenuItem1.setText("save");
+      jMenu1.add(jMenuItem1);
+      
+      jMenuItem2.setText("open");
+      jMenu1.add(jMenuItem2);
+      
+      jMenuBar1.add(jMenu1);
+      
+      jMenu2.setText("Edit");
+      jMenuBar1.add(jMenu2);
+      
+      setJMenuBar(jMenuBar1);
+      
+      javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+      getContentPane().setLayout(layout);
+      layout.setHorizontalGroup(
+      layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(layout.createSequentialGroup()
+      .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(layout.createSequentialGroup()
+      .addGap(157, 157, 157)
+      .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+      .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)
+      .addGroup(layout.createSequentialGroup()
+      .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+      .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+      .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))))
+      .addGroup(layout.createSequentialGroup()
+      .addGap(367, 367, 367)
+      .addComponent(submit)))
+      .addContainerGap(200, Short.MAX_VALUE))
+      );
+      layout.setVerticalGroup(
+      layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(layout.createSequentialGroup()
+      .addGap(98, 98, 98)
+      .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+      .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+      .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+      .addGap(18, 18, 18)
+      .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+      .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+      .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+      .addGap(24, 24, 24)
+      .addComponent(submit)
+      .addContainerGap(22, Short.MAX_VALUE))
+      );
+      
+      pack();
+   }
+   // </editor-fold>                        
+   
+   private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt)
+   {
+      // TODO add your handling code here:
+      
+   }
+   
+   private void submitActionPerformed(java.awt.event.ActionEvent evt)
+   {
+      String name = jTextField1.getText();
+      String email = jTextField2.getText();
+      String country = jComboBox1.getSelectedItem().toString();
+      String address = jTextArea1.getText();
+      
+      String userInput = name + ", "+ email + ", "+ country + ", "+ address;
+      System.out.println(userInput); // TODO add your handling code here:
+      
+   }
+   
+   private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt)
+   {
+      // TODO add your handling code here:
+      
+   }
+   
+   private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt)
+   {
+      // TODO add your handling code here:
+      
+   }
+   
+   /**
+        * @param args the command line arguments
+        */
+   public static void main(String args[])
+   {
+      /* Set the Nimbus look and feel */
+      //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+      /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+               * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+               */
+      try
+      {
+         for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
+         {
+            if ("Nimbus".equals(info.getName()))
+            {
+               javax.swing.UIManager.setLookAndFeel(info.getClassName());
+               break;
+            }
+         }
+      }
+      catch (ClassNotFoundException ex)
+      {
+         java.util.logging.Logger.getLogger(UserEntryForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      }
+      catch (InstantiationException ex)
+      {
+         java.util.logging.Logger.getLogger(UserEntryForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      }
+      catch (IllegalAccessException ex)
+      {
+         java.util.logging.Logger.getLogger(UserEntryForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      }
+      catch (javax.swing.UnsupportedLookAndFeelException ex)
+      {
+         java.util.logging.Logger.getLogger(UserEntryForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      }
+      //</editor-fold>
+      
+      /* Create and display the form */
+      java.awt.EventQueue.invokeLater(() ->
+      {
+         new UserEntryForm().setVisible(true);
+      }
+      );
+   }
+   
+   // Variables declaration - do not modify                     
+   private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
+   private javax.swing.JComboBox<String> jComboBox1;
+   private javax.swing.JFileChooser jFileChooser1;
+   private javax.swing.JMenu jMenu1;
+   private javax.swing.JMenu jMenu2;
+   private javax.swing.JMenuBar jMenuBar1;
+   private javax.swing.JMenuItem jMenuItem1;
+   private javax.swing.JMenuItem jMenuItem2;
+   private javax.swing.JScrollPane jScrollPane1;
+   private javax.swing.JTextArea jTextArea1;
+   private javax.swing.JTextField jTextField1;
+   private javax.swing.JTextField jTextField2;
+   private javax.swing.JButton submit;
+   // End of variables declaration                   
+   
+}
+
+// lab10
+private void initComponents()
+{
+   setLayout(new GridBagLayout());
+   GridBagConstraints gbc = new GridBagConstraints();
+   lblName = new JLabel("Name");
+   gbc.gridx = 1;
+   gbc.gridy = 0;
+   gbc.anchor = GridBagConstraints.WEST;
+   gbc.insets = new Insets(8, 80, 80, 8);
+   add(lblName, gbc);
+   txtName = new JTextField(600);
+   gbc.gridx = 2;
+   gbc.gridy = 0;
+   gbc.fill = GridBagConstraints.HORIZONTAL;
+   gbc.insets = new Insets(8, 8, 8, 8);
+   add(txtName, gbc);
+   lblEmail = new JLabel("Email");
+   gbc.gridx = 1;
+   gbc.gridy = 1;
+   gbc.anchor = GridBagConstraints.WEST;
+   gbc.insets = new Insets(8, 8, 8, 8);
+   add(lblEmail, gbc);
+   txtEmail = new JTextField(20);
+   gbc.gridx = 2;
+   gbc.gridy = 1;
+   gbc.fill = GridBagConstraints.HORIZONTAL;
+   gbc.insets = new Insets(8, 8, 8, 8);
+   add(txtEmail, gbc);
+   lblCountry = new JLabel("Country");
+   gbc.gridx = 1;
+   gbc.gridy = 2;
+   gbc.anchor = GridBagConstraints.WEST;
+   gbc.insets = new Insets(8, 8, 8, 8);
+   add(lblCountry, gbc);
+   cmbCountry = new JComboBox<>(new String[]
+   {
+      "China", "USA", "Other"
+   }
+   );
+   gbc.gridx = 2;
+   gbc.gridy = 2;
+   gbc.fill = GridBagConstraints.HORIZONTAL;
+   gbc.insets = new Insets(8, 8, 8, 8);
+   add(cmbCountry, gbc);
+   lblAddress = new JLabel("Address");
+   gbc.gridx = 1;
+   gbc.gridy = 3;
+   gbc.anchor = GridBagConstraints.WEST;
+   gbc.insets = new Insets(8, 8, 8, 8);
+   add(lblAddress, gbc);
+   tarAddress = new JTextArea(5, 20);
+   gbc.gridx = 2;
+   gbc.gridy = 3;
+   gbc.fill = GridBagConstraints.BOTH;
+   gbc.insets = new Insets(8, 8, 8, 8);
+   add(tarAddress, gbc);
+   btnSubmit = new JButton("Submit");
+   gbc.gridx = 2;
+   gbc.gridy = 4;
+   gbc.anchor = GridBagConstraints.CENTER;
+   gbc.insets = new Insets(8, 8, 8, 8);
+   add(btnSubmit, gbc);
+}
+
+// exercise4
+import java.awt.*;
+import java.io.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.border.MatteBorder;
+
+public class Datasheet extends javax.swing.JFrame
+{
+   
+   public Datasheet()
+   {
+      initComponents("C:\\Users\\admin\\Documents\\csci121\\data.txt");
+   }
+   
+   private void initComponents(String filepath)
+   {
+      Scanner scanner = null;
+      try
+      {
+         scanner = new Scanner(new File(filepath));
+      }
+      catch (FileNotFoundException e)
+      {
+         System.out.println("File not exists: use the file path to the data.txt in HW3");
+         return;
+      }
+      setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+      Container contentPane = getContentPane();
+      GridBagLayout layout = new GridBagLayout();
+      contentPane.setLayout(layout);
+      GridBagConstraints c = new GridBagConstraints();
+      int row = 0;
+      int col = 0;
+      MatteBorder border = new MatteBorder(1, 3, 1, 4, Color.white);
+      
+      if (scanner.hasNext())
+      {
+         String titleData = scanner.next();
+         c.gridx = col;
+         c.gridy = row;
+         c.weightx = 1;
+         c.weighty = 1.0;
+         c.anchor = GridBagConstraints.NORTHWEST;
+         c.insets = new Insets(0, 0, 1, 1);
+         c.fill = GridBagConstraints.BOTH;
+         c.gridheight = 1;
+         c.gridwidth = 1;
+         c.ipadx = 0;
+         c.ipady = 0;
+         JLabel titleLbl = new JLabel(titleData);
+         titleLbl.setBackground(Color.white);
+         titleLbl.setOpaque(true);
+         titleLbl.setBorder(border);
+         titleLbl.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+         contentPane.add(titleLbl, c);
+         col++;
+         if (col == 9)
+         {
+            row++;
+            col = 0;
+         }
+      }
+      while (scanner.hasNext())
+      {
+         String data = scanner.next();
+         c.gridx = col;
+         c.gridy = row;
+         c.weightx = 1;
+         c.weighty = 1.0;
+         c.anchor = GridBagConstraints.NORTHWEST;
+         c.insets = new Insets(0, 0, 1, 1);
+         c.fill = GridBagConstraints.BOTH;
+         c.gridheight = 1;
+         c.gridwidth = 1;
+         c.ipadx = 0;
+         c.ipady = 0;
+         if (row > 0)
+         {
+            if (col == 1)
+            {
+               List<String> options = new ArrayList<>();
+               options.add(data);
+               JComboBox<String> comboBox = new JComboBox<>(options.toArray(new String[0]));
+               comboBox.setBackground(Color.white);
+               comboBox.setBorder(border);
+               comboBox.setEditable(true);
+               comboBox.setRenderer(new RightAlignedComboBoxRenderer());
+               contentPane.add(comboBox, c);
+            }
+            else
+            {
+               JTextField textField = new JTextField(data);
+               textField.setBackground(Color.white);
+               textField.setBorder(border);
+               textField.setHorizontalAlignment(SwingConstants.RIGHT);
+               contentPane.add(textField, c);
+            }
+         }
+         else
+         {
+            JLabel lbl = new JLabel(data);
+            lbl.setBackground(Color.white);
+            lbl.setOpaque(true);
+            lbl.setBorder(border);
+            lbl.setHorizontalAlignment(SwingConstants.RIGHT);
+            contentPane.add(lbl, c);
+         }
+         col++;
+         if (col == 9)
+         {
+            row++;
+            col = 0;
+         }
+      }
+      
+      scanner.close();
+      setMinimumSize(new Dimension(400, 1400));
+      pack();
+   }
+   
+   static class RightAlignedComboBoxRenderer extends BasicComboBoxRenderer
+   {
+      
+      @Override
+      public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus)
+      {
+         Component component = super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+         if (component instanceof JLabel)
+         {
+            ((JLabel) component).setHorizontalAlignment(SwingConstants.RIGHT);
+         }
+         return component;
+      }
+   }
+   
+   public static void main(String args[])
+   {
+      new Datasheet().setVisible(true);
+   }
+}
+
+// lab11
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.*;
+import java.util.Scanner;
+
+public class TextEditor extends JFrame
+{
+   
+   private JTextArea txt;
+   private String path;
+   
+   public TextEditor()
+   {
+      setTitle("Simple Text Editor");
+      setSize(800, 600);
+      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+      
+      txt = new JTextArea();
+      
+      JMenuBar menuBar = new JMenuBar();
+      JMenu fileMenu = new JMenu("File");
+      
+      JMenuItem openMenuItem = new JMenuItem("Open");
+      JMenuItem saveMenuItem = new JMenuItem("Save");
+      
+      openMenuItem.addActionListener(new ActionListener()
+      {
+         @Override
+         public void actionPerformed(ActionEvent e)
+         {
+            open();
+         }
+      }
+      );
+      
+      saveMenuItem.addActionListener(new ActionListener()
+      {
+         @Override
+         public void actionPerformed(ActionEvent e)
+         {
+            save();
+         }
+      }
+      );
+      
+      fileMenu.add(openMenuItem);
+      fileMenu.add(saveMenuItem);
+      menuBar.add(fileMenu);
+      setJMenuBar(menuBar);
+      add(new JScrollPane(txt));
+      setVisible(true);
+   }
+   
+   private void open()
+   {
+      path = JOptionPane.showInputDialog(this, "Enter file path:");
+      if (path != null && !path.isEmpty())
+      {
+         try
+         {
+            File file = new File(path);
+            Scanner scanner = new Scanner(file);
+            scanner.useDelimiter("\n");
+            StringBuilder content = new StringBuilder();
+            while (scanner.hasNext())
+            {
+               content.append(scanner.next()).append("\n");
+            }
+            txt.setText(content.toString().trim());
+            scanner.close();
+         }
+         catch (IOException ex)
+         {
+            JOptionPane.showMessageDialog(this, path + " does not exists ", "Error", JOptionPane.ERROR_MESSAGE);
+         }
+      }
+   }
+   
+   private void save()
+   {
+      
+      try
+      {
+         FileWriter writer = new FileWriter(path);
+         writer.write(txt.getText());
+         writer.close();
+      }
+      catch (IOException ex)
+      {
+         JOptionPane.showMessageDialog(this, "Error saving file: "+ ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+      }
+      
+   }
+   
+   public static void main(String[] args)
+   {
+      SwingUtilities.invokeLater(new Runnable()
+      {
+         @Override
+         public void run()
+         {
+            new TextEditor();
+         }
+      }
+      );
+   }
+}
+
+// homework5
+// 1
+import java.awt.*;
+import java.io.*;
+import java.util.*;
+import javax.swing.*;
+import javax.swing.SwingConstants.*;
+import javax.swing.border.MatteBorder;
+public class Editable1 extends javax.swing.JFrame
+{
+   private int ROWS = 0, COLS=9;
+   String filepath;
+   JComponent comp[][];
+   private void initComponents0(String filepath)
+   {
+      this.filepath = filepath;
+      Scanner s = null;
+      try
+      {
+         s = new Scanner(new File(filepath));
+      }
+      catch(Exception e)
+      {
+         System.out.println("wrong file path");
+      }
+      setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+      Container contentpane = getContentPane();
+      GridBagLayout layout = new GridBagLayout();
+      contentpane.setLayout(layout);
+      contentpane.setBackground(Color.white);
+      GridBagConstraints c = new GridBagConstraints();
+      MatteBorder border = new MatteBorder(1,3,1,4,Color.WHITE);
+      int row = 0, col = 0;
+      comp = new JComponent[48][];
+      while (s.hasNext())
+      {
+         String data = s.next();
+         JComponent e;
+         if (col == 0)
+            comp[row] = new JComponent[9];
+         if (row == 0) e = new JLabel(data);
+            else if (col == 1)
+            {
+               JComboBox<String> x = new JComboBox<String>();
+               x.setModel(new javax.swing.DefaultComboBoxModel<>(new String[]
+               {
+                  "A", "B", "C", "D", "F"
+               }
+               ));
+               x.setSelectedItem(data);
+               x.setBackground(Color.white);
+               e = x;
+            }
+            else
+            {
+               JTextField x = new JTextField(data);
+               x.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+               e = x;
+            }
+            //e.setName("num" + row + '_' + col);
+            comp[row][col] = e;
+            c.gridx = col;
+            c.gridy = row;
+            c.weightx = 1;
+            c.weighty = 0.1;
+            c.anchor = GridBagConstraints.NORTHWEST;
+            c.insets = new Insets(1,1,1,1);
+            c.fill = GridBagConstraints.HORIZONTAL;
+            c.gridheight = 1;
+            c.gridwidth = 1;
+            c.ipadx = 0;
+            c.ipady = 0;
+            e.setBorder(border);
+            
+            contentpane.add(e,c);
+            col++;
+            if (col == 9)
+            {
+               col = 0;
+               row++;
+            }
+      }
+      pack();
+      ROWS =row;
+      jMenuBar1 = new javax.swing.JMenuBar();
+      jMenu1 = new javax.swing.JMenu();
+      jMenuItem1 = new javax.swing.JMenuItem();
+      jMenuItem2 = new javax.swing.JMenuItem();
+      jMenu1.setText("File");
+      jMenuItem1.setText("Open");
+      jMenuItem1.addActionListener(new java.awt.event.ActionListener()
+      {
+         public void actionPerformed(java.awt.event.ActionEvent evt)
+         {
+            jMenuItem1ActionPerformed(evt);
+         }
+      }
+      );
+      jMenu1.add(jMenuItem1);
+      jMenuItem2.setText("Save");
+      jMenuItem2.addActionListener(new java.awt.event.ActionListener()
+      {
+         public void actionPerformed(java.awt.event.ActionEvent evt)
+         {
+            jMenuItem2ActionPerformed(evt);
+         }
+      }
+      );
+      jMenu1.add(jMenuItem2);
+      jMenuBar1.add(jMenu1);
+      setJMenuBar(jMenuBar1);
+      setSize(400,1200);
+   }
+   public Editable1()
+   {
+      initComponents0("D:\\customer0\\web\\D10059906\\35-121\\assignment\\data.txt");
+   }
+   
+   public void save()
+   {
+      
+      StringBuilder stringbuilder = new StringBuilder();
+      for (int row = 0; row < ROWS; row++)
+      {
+         for (int col = 0; col < COLS; col++)
+         {
+            JComponent x = comp[row][col];
+            
+            String value;
+            if (x instanceof JTextField)
+            {
+               value = ((JTextField) x).getText();
+            }
+            else if (x instanceof JComboBox)
+            {
+               value = (String) ((JComboBox) x).getSelectedItem();
+            }
+            else
+            {
+               value = ((JLabel) x).getText();
+            }
+            
+            stringbuilder.append(value);
+            String delimiter = "\t";
+            if (col == COLS - 1)
+            {
+               if (row == ROWS - 1)
+               {
+                  delimiter = "";
+               }
+               else
+               {
+                  delimiter = "\n";
+               }
+            }
+            stringbuilder.append(delimiter);
+         }
+      }
+      try
+      {
+         FileWriter f = new FileWriter(filepath,false);
+         f.write(stringbuilder.toString());
+         f.close();
+      }
+      catch (Exception e)
+      {
+      }
+      System.out.println(stringbuilder);
+   }
+   
+   private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt)
+   {
+      //GEN-FIRST:event_jMenuItem2ActionPerformed
+      save();
+   }
+   
+   private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt)
+   {
+      //GEN-FIRST:event_jMenuItem1ActionPerformed
+      
+   }
+   
+   public static void main(String args[])
+   {
+      
+      java.awt.EventQueue.invokeLater(new Runnable()
+      {
+         public void run()
+         {
+            new Edittable().setVisible(true);
+         }
+      }
+      );
+   }
+   private javax.swing.JMenu jMenu1;
+   private javax.swing.JMenu jMenu2;
+   private javax.swing.JMenuBar jMenuBar1;
+   private javax.swing.JMenuItem jMenuItem1;
+   private javax.swing.JMenuItem jMenuItem2;
+}
+
+// 3
+import java.io.File;
+import java.util.*;
+
+public class Grades1
+{
+   
+   public static void main(String[] args)
+   {
+      StringBuilder storestring = new StringBuilder();
+      try
+      {
+         Scanner scanner = new Scanner(new File(args[0]));
+         int n; // total rows
+         int row = 0, col = 0;
+         String grades = "FDCBA";
+         String grade; // temporary hold a grade 
+         String [] headings = new String[9];
+         float [][] nums = new float[48][]; // actual n is less then 48
+         float [] means = new float[9];
+         float [] stdvs = new float[9];
+         
+         while (scanner.hasNext())
+         {
+            if (row == 0)
+               headings[col] = scanner.next();
+            else
+            {
+               if (col==0)
+                  nums[row] = new float[9];
+               if (col==1)
+               {
+                  nums[row][1] = grades.indexOf(scanner.next());
+               }
+               else
+                  nums[row][col] = scanner.nextFloat();
+            }
+            col++;
+            if (col == 9)
+            {
+               col = 0; row++;
+            }
+         }
+         n = row;
+         scanner.close();
+         if (n < 2)
+         {
+            System.out.println("No data rows");
+            return;
+         }
+         for (col = 0; col < 9; col++)
+         {
+            float sum = 0;
+            for (row = 1; row < n; row++)
+            {
+               sum += nums[row][col];
+            }
+            means[col] = sum/(n - 1);
+            System.out.println("Mean of "+ headings[col] + ": "+ means[col]);
+            sum = 0;
+            for (row = 1; row < n; row++)
+            {
+               sum += Math.pow( nums[row][col] - means[col], 2);
+            }
+            stdvs[col] = (float)Math.sqrt(sum/(n-1));
+         }
+         for (col = 0; col < 9; col++)
+         {
+            System.out.println("Stdv  of "+ headings[col] + ": "+ stdvs[col]);
+         }
+      }
+      catch(Exception e)
+      {
+         
+      }
+   }
+}
+
+// lab12 
+import java.awt.*;
+import java.io.*;
+import java.util.Scanner;
+import javax.swing.*;
+
+public class GoGame extends JFrame
+{
+   final int N = 19;
+   int cellSize;
+   private JLabel lblmyip = new JLabel("My IP");
+   private JLabel lblpip = new JLabel("Partner IP");
+   private JTextField txtmyip = new JTextField("192.168.1.100");
+   private JTextField txtpip = new JTextField("192.168.1.103");
+   private JButton btnStart= new JButton("Listen");
+   private JLabel lblmycolor = new JLabel("Black");
+   private JMenuBar jMenuBar1 = new javax.swing.JMenuBar();
+   private JMenu jMenu1 = new javax.swing.JMenu();
+   private JMenuItem jMenuItem1 = new javax.swing.JMenuItem();
+   private JMenuItem jMenuItem2 = new javax.swing.JMenuItem();
+   
+   Container contentpane = getContentPane();
+   
+   Color [][] colors = new Color[N][];
+   JPanel board = new JPanel()
+   {
+      @Override
+      protected void paintComponent(Graphics g)
+      {
+         super.paintComponent(g);
+         paintGrid(width, g);
+         for (int row=0; row < N; row++)
+         {
+            for (int col=0;col< N; col++)
+            {
+               g.setColor(colors[row][col]);
+               if (colors[row][col] != Color.ORANGE)
+                  g.fillOval((int)((0.65+col)*cellSize),(int)((0.63+row)*cellSize), 3*cellSize/4, 3*cellSize/4 );
+            }
+         }
+      }
+      
+   };
+   int width = 500;
+   public GoGame()
+   {
+      initComponents();
+   }
+   
+   public void paintGrid(int w, Graphics g)
+   {
+      cellSize = width/N;
+      width = N * cellSize;
+      g.setColor(java.awt.Color.BLACK);
+      for (int row = 1; row <= N; row++)
+      {
+         g.drawLine(cellSize, row * cellSize, width, row * cellSize);
+      }
+      for (int col = 1; col <= N; col++)
+      {
+         g.drawLine(col * cellSize, cellSize, col * cellSize, width);
+      }
+   }
+   private void place(JComponent e, int x, int y)
+   {
+      GridBagConstraints c = new GridBagConstraints();
+      c.gridx = x;
+      c.gridy = y;
+      c.gridwidth = (y == 0?1:6);
+      c.weightx = 1.0;
+      c.weighty = (y==0?0.0:1.0);
+      if (y == 1 || x%2==1) c.fill = GridBagConstraints.BOTH;
+         c.anchor = x%2==0? GridBagConstraints.EAST: GridBagConstraints.WEST;
+      c.insets = new java.awt.Insets(3, 3, 0, 0);
+      contentpane.add(e, c);
+   }
+   @SuppressWarnings("unchecked")
+   private void initComponents()
+   {
+      for (int i=0; i < N; i++)
+      {
+         colors[i] = new Color[N];
+         for (int j=0; j < N; j++)
+            colors[i][j] = Color.ORANGE;
+      }
+      java.awt.GridBagConstraints c;
+      Container contentpane = getContentPane();
+      setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+      
+      contentpane.setLayout(new java.awt.GridBagLayout());
+      place(lblmyip,0,0);
+      place(txtmyip,1,0);
+      place(lblpip,2,0);
+      place(txtpip,3,0);
+      place(lblmycolor,4,0);
+      place(btnStart,5,0);
+      board.setSize(width+2*cellSize, width+3*cellSize);
+      board.setVisible(true);
+      place(board,0,1);
+      setSize((int)(width*1.09), (int)(width*1.24));
+      setMinimumSize(new java.awt.Dimension((int)(width*1.08), (int)(width*1.24)));
+      pack();
+      board.setBackground(Color.ORANGE);
+      board.addMouseListener(new java.awt.event.MouseAdapter()
+      {
+         public void mouseClicked(java.awt.event.MouseEvent evt)
+         {
+            if (state != State.listening)
+               boardMouseClicked(evt);
+         }
+      }
+      );
+      
+      btnStart.addActionListener(new java.awt.event.ActionListener()
+      {
+         public void actionPerformed(java.awt.event.ActionEvent evt)
+         {
+            
+            if (state == State.init)
+            {
+               com.receive(true);
+               lblmycolor.setText("White");
+               state = State.listening;
+               mycolor = Color.WHITE;
+               btnStart.setText("Quit");
+            }
+            else if (state == State.listening)
+            {
+               com.sendnum(-1, 1, txtmyip.getText());
+               btnStart.setText("Quit");
+               init();
+            }
+            else if (state == State.thinking )
+            {
+               com.sendnum(-1, 1, txtpip.getText());
+               btnStart.setText("Surrend");
+               init();
+            }
+         }
+      }
+      );
+      jMenu1.setText("File");
+      jMenuItem1.setText("Save");
+      jMenu1.add(jMenuItem1);
+      jMenuItem2.setText("Open");
+      jMenu1.add(jMenuItem2);
+      jMenuBar1.add(jMenu1);
+      setJMenuBar(jMenuBar1);
+   }
+   public void drawStone(int r, int c, Color cl)
+   {
+      colors[r][c] = cl;
+      board.repaint();
+   }
+   Dialogs com = new Dialogs()
+   {
+      public void handlenum(int row, int col)
+      {
+         handle( row, col);
+      }
+   };
+   public enum State
+   {
+      init, listening, thinking
+   };
+   Color mycolor = Color.BLACK;
+   private void init()
+   {
+      btnStart.setText("Listen");
+      lblmycolor.setText("Black");
+      state = State.init;
+      mycolor = Color.BLACK;
+   }
+   State state = State.init;
+   
+   private void boardMouseClicked(java.awt.event.MouseEvent evt)
+   {
+      if (state== State.listening) return;
+         int y0 = board.getY();
+      int x0 = board.getX();
+      int col = Math.round((evt.getX()-x0)/cellSize);
+      int row = Math.round((evt.getY()-x0)/cellSize);
+      if (col < 0) col = 0; else if (col >=N) col = N-1;
+         if (row < 0) row = 0; else if (row >= N) row = N-1;
+            drawStone(row, col, mycolor);
+         com.sendnum(row,col,txtpip.getText());
+         com.receive(true);
+         state = State.listening;
+         btnStart.setText("Quit");
+   }
+   
+   public void handle(int row, int col)
+   {
+      if (row == -1)
+      {
+         state = State.init;
+      }
+      else
+      {
+         drawStone(row, col, mycolor == Color.BLACK?Color.WHITE:Color.BLACK);
+         state = State.thinking;
+      }
+   }
+   
+   public static void main(String args[])
+   {
+      java.awt.EventQueue.invokeLater(new Runnable()
+      {
+         public void run()
+         {
+            new GoGame().setVisible(true);
+         }
+      }
+      );
+   }
+   
+   private void save1()
+   {
+      try
+      {
+         FileWriter f = new FileWriter("gogame.txt",false);
+         for (int r = 0; r < N; r++)
+         {
+            for (int c = 0; c < N; c++)
+               f.append((colors[r][c] == Color.BLACK?"0":(colors[r][c] == Color.WHITE?"1":"2")));
+            f.write("\n");
+         }
+         if (mycolor==Color.BLACK)
+         {
+            f.append( state==State.init?"2":(state==State.thinking?"0":"1"));
+         }
+         else
+         {
+            f.append( state==State.init?"2":(state==State.thinking?"1":"0"));
+         }
+         f.close();
+      }
+      catch(Exception e)
+      {
+         
+      }
+   }
+   private void open1()
+   {
+      try
+      {
+         Scanner s = new Scanner(new File("gogame.txt"));
+         for (int r = 0; r < N; r++)
+         {
+            String t = s.next();
+            for (int c = 0; c < N; c++)
+            {
+               char x = t.charAt(c);
+               Color color = x == '1'?Color.WHITE:(x=='0'?Color.BLACK:null);
+               if (color!=null)
+                  drawStone(r, c, color);
+            }
+         }
+         int i = s.nextInt();
+         String m = JOptionPane.showInputDialog("What is your previous color?");
+         if (m.equals("black")) mycolor = Color.BLACK;
+            else
+               mycolor = Color.WHITE;
+            if (i == 1 && mycolor == Color.WHITE || i == 0 && mycolor == Color.BLACK)
+               JOptionPane.showMessageDialog(this, "You got first");
+      }
+      catch(Exception e)
+      {
+         
+      }
+      board.repaint();
+   }
+   
+   private void save()
+   {
+      try
+      {
+         ObjectOutputStream o = new ObjectOutputStream(new FileOutputStream("gogame.txt"));
+         o.writeObject(colors);
+         o.writeObject(mycolor);
+         o.writeObject(state);
+         o.close();
+      }
+      catch(Exception e)
+      {
+         
+      }
+   }
+   private void open()
+   {
+      try
+      {
+         ObjectInputStream o = new ObjectInputStream(new FileInputStream("gogame.txt"));
+         colors = (Color[][])o.readObject();
+         mycolor= (Color)o.readObject();
+         state= (State) o.readObject();
+         if (state == State.thinking)
+            JOptionPane.showMessageDialog(this, "You go first");
+      }
+      catch(Exception e)
+      {
+         
+      }
+      board.repaint();
+   }
+   private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt)
+   {
+      save();
+   }
+   private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt)
+   {
+      open();
+   }
+}
+
+// lab13 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.lang.Thread.State;
+import java.net.ServerSocket;
+import java.net.Socket;
+import javax.swing.JOptionPane;
+
+public class Dialogs
+{
+   public void handlenum(int r, int c)
+   {
+      System.out.println(r + " "+ c);
+   }
+   public void handlestr(String x)
+   {
+      System.out.println(x);
+   }
+   int port = 2311;
+   ServerSocket serverSocket = null;
+   public Dialogs()
+   {
+      
+   }
+   void sendnum(int row, int col, String ip)
+   {
+      try
+      {
+         Socket socket = new Socket(ip, port);
+         DataOutputStream outputStream = new DataOutputStream(socket.getOutputStream());
+         outputStream.writeInt(row);
+         outputStream.writeInt(col);
+         outputStream.close();
+         socket.close();
+         receive(true);
+      }
+      catch (IOException ex)
+      {
+         JOptionPane.showMessageDialog(null, ex.toString());
+         
+      }
+      
+   }
+   public void sendstr(String msg, String ip)
+   {
+      try
+      {
+         Socket socket = new Socket(ip, port);
+         DataOutputStream outputStream = new DataOutputStream(socket.getOutputStream());
+         outputStream.writeUTF(msg);
+         outputStream.close();
+         socket.close();
+         receive(true);
+         
+      }
+      catch (IOException ex)
+      {
+         JOptionPane.showMessageDialog(null, ex.toString());
+      }
+   }
+   void receive(boolean num)
+   {
+      new Thread()
+      {
+         public void run()
+         {
+            try
+            {
+               ServerSocket serverSocket = new ServerSocket(port);
+               System.out.println("wait ....");
+               Socket socket = serverSocket.accept();
+               System.out.println("get one ....");
+               DataInputStream inputStream = new DataInputStream(socket.getInputStream());
+               if (num)
+               {
+                  int row = inputStream.readInt();
+                  int col = inputStream.readInt();
+                  handlenum(row, col);
+               }
+               else
+               {
+                  String s= inputStream.readLine();
+                  handlestr(s);
+               }
+               socket.close();
+               serverSocket.close();
+            }
+            catch (IOException ex)
+            {
+               JOptionPane.showMessageDialog(null, ex.toString());
+            }
+         }
+      }
+      .start();
+   }
+}
+
+// homework6 programming part 
+// 1
+import java.io.*;
+
+public class Main
+{
+   public static void main(String[] args)
+   {
+      try
+      {
+         FileReader r = new FileReader("Main.java");
+         int x = r.read();
+         while (x >= 0 && x < 100)
+         {
+            // Check if x is less than 100 and not EOF (-1)
+            x = r.read();
+         }
+         System.out.println((char) x); // Print the character read
+         
+      }
+      catch (FileNotFoundException e)
+      {
+         System.out.println("File not found");
+      }
+      catch (IOException e)
+      {
+         // Added catch block for IOException
+         System.out.println("An I/O error occurred");
+      }
+   }
+}
+
+// 2
+import java.io.*;
+
+public class Main
+{
+   public static void main(String[] args)
+   {
+      try
+      {
+         FileReader r = new FileReader("Main.java");
+         int x = r.read();
+         while (x >= 0 && x < 100)
+         {
+            // Continue reading until a character with ASCII value less than 100 is found
+            x = r.read();
+         }
+         System.out.println((char) x); // Print the character read
+         r.close(); // Close the file reader
+         
+      }
+      catch (Exception e)
+      {
+         // Single catch block to handle all exceptions
+         System.out.println("An error occurred: "+ e.getMessage());
+      }
+   }
+}
+
+// 6
+import java.io.*;
+import java.util.Arrays;
+import javax.swing.JOptionPane;
+
+public class Game
+{
+   private int[][] colors;
+   private byte state; // Assuming state is a single byte
+   private final int boardSize = 8; // Example board size, adjust as needed
+   
+   public Game()
+   {
+      // Initialize colors and state here
+      colors = new int[boardSize][boardSize];
+      state = 0; // Set initial state
+      
+   }
+   
+   public void save(String filename)
+   {
+      try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(filename)))
+      {
+         oos.writeObject(colors);
+         oos.writeByte(state);
+      }
+      catch (IOException e)
+      {
+         e.printStackTrace();
+      }
+   }
+   
+   public void open(String filename)
+   {
+      try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filename)))
+      {
+         colors = (int[][]) ois.readObject();
+         state = ois.readByte();
+         repaint();
+         if (state == 1)
+         {
+            // Assuming state 1 means "listening"
+            JOptionPane.showMessageDialog(null, "To resume the game, click Listen button");
+         }
+      }
+      catch (IOException | ClassNotFoundException e)
+      {
+         e.printStackTrace();
+      }
+   }
+   
+   private void repaint()
+   {
+      // Code to draw the colors on the board
+      // This method should be implemented based on how your board is represented
+      // For example, you might have a method that updates a GUI with the colors[][] data
+      
+   }
+}
+
+// lab17 
+// 1
+import java.util.concurrent.atomic.AtomicBoolean;
+
+public class Factoring extends javax.swing.JFrame
+{
+   public Factoring()
+   {
+      initComponents();
+      jTextField1.setText(""+ Long.MAX_VALUE);
+      jButton1.setText("Start");
+   }
+   
+   @SuppressWarnings("unchecked")
+   // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+   private void initComponents()
+   {
+      
+      jButton1 = new javax.swing.JButton();
+      jTextField1 = new javax.swing.JTextField();
+      jScrollPane1 = new javax.swing.JScrollPane();
+      jTextArea1 = new javax.swing.JTextArea();
+      
+      setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+      
+      jButton1.setText("jButton1");
+      jButton1.addActionListener(new java.awt.event.ActionListener()
+      {
+         public void actionPerformed(java.awt.event.ActionEvent evt)
+         {
+            jButton1ActionPerformed(evt);
+         }
+      }
+      );
+      
+      jTextField1.setText("jTextField1");
+      
+      jTextArea1.setColumns(20);
+      jTextArea1.setRows(5);
+      jScrollPane1.setViewportView(jTextArea1);
+      
+      javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+      getContentPane().setLayout(layout);
+      layout.setHorizontalGroup(
+      layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+      .addGap(139, 139, 139)
+      .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 334, javax.swing.GroupLayout.PREFERRED_SIZE)
+      .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+      .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+      .addGap(133, 133, 133))
+      .addGroup(layout.createSequentialGroup()
+      .addGap(30, 30, 30)
+      .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 780, javax.swing.GroupLayout.PREFERRED_SIZE)
+      .addContainerGap(30, Short.MAX_VALUE))
+      );
+      layout.setVerticalGroup(
+      layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(layout.createSequentialGroup()
+      .addGap(34, 34, 34)
+      .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+      .addComponent(jButton1)
+      .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+      .addGap(18, 18, 18)
+      .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 499, javax.swing.GroupLayout.PREFERRED_SIZE)
+      .addContainerGap(22, Short.MAX_VALUE))
+      );
+      
+      pack();
+   }
+   // </editor-fold>                        
+   AtomicBoolean done = new AtomicBoolean(false);
+   
+   void task()
+   {
+      long n = Long.parseLong(jTextField1.getText());
+      int k = 0;
+      for (int i = 2; i < Math.sqrt(n); i++)
+      {
+         boolean done0;
+         
+         if (done.get() == true)
+         {
+            break;
+         }
+         
+         if (n % i == 0)
+         {
+            k++;
+            jTextArea1.append(i + (k % 10 == 0 ? "\n": ","));
+         }
+      }
+   }
+   private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)
+   {
+      // TODO add your handling code here:
+      String face = jButton1.getText();
+      
+      if (face.equals("Start"))
+      {
+         new Thread()
+         {
+            @Override
+            public void run()
+            {
+               task();
+            }
+         }
+         .start();
+         jButton1.setText("Quit");
+         done.set(false);
+      }
+      else
+      {
+         done.set(false);
+         jButton1.setText("Start");
+      }
+      
+   }
+   
+   public static void main(String args[])
+   {
+      try
+      {
+         for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
+         {
+            if ("Nimbus".equals(info.getName()))
+            {
+               javax.swing.UIManager.setLookAndFeel(info.getClassName());
+               break;
+            }
+         }
+      }
+      catch (ClassNotFoundException ex)
+      {
+         java.util.logging.Logger.getLogger(Factoring.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      }
+      catch (InstantiationException ex)
+      {
+         java.util.logging.Logger.getLogger(Factoring.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      }
+      catch (IllegalAccessException ex)
+      {
+         java.util.logging.Logger.getLogger(Factoring.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      }
+      catch (javax.swing.UnsupportedLookAndFeelException ex)
+      {
+         java.util.logging.Logger.getLogger(Factoring.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      }
+      //</editor-fold>
+      
+      java.awt.EventQueue.invokeLater(new Runnable()
+      {
+         @Override
+         public void run()
+         {
+            new Factoring().setVisible(true);
+         }
+      }
+      );
+   }
+   
+   // Variables declaration - do not modify                     
+   private javax.swing.JButton jButton1;
+   private javax.swing.JScrollPane jScrollPane1;
+   private javax.swing.JTextArea jTextArea1;
+   private javax.swing.JTextField jTextField1;
+   // End of variables declaration                   
+   
+}
+
+// 2
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicBoolean;
+
+public class FileSaving
+{
+   
+   static AtomicBoolean b = new AtomicBoolean(false);
+   
+   static class FileThread extends Thread
+   {
+      
+      String path;
+      
+      FileThread(String p)
+      {
+         path = p;
+      }
+      
+      @Override
+      public void run()
+      {
+         
+         FileWriter f = null;
+         String n = Thread.currentThread().getName();
+         synchronized (b)
+         {
+            try
+            {
+               f = new FileWriter(path, true);
+               f.write(n + "\n");
+               System.out.println(n + "\n");
+            }
+            catch (IOException e)
+            {
+               System.out.println(e.toString());
+            }
+            finally
+            {
+               if (f != null) try
+               {
+                  f.close();
+               }
+               catch (IOException el)
+               {
+                  System.out.println(el.toString());
+               }
+            }
+         }
+      }
+   }
+   
+   public static void main(String[] args)
+   {
+      Thread[] ts = new Thread[10];
+      for (int i = 0; i < 10; i++)
+      {
+         ts[i] = new FileThread("sharedfile.txt");
+         ts[i].setName("t"+ i);
+         ts[i].start();
+      }
+      for (int i = 0; i < 10; i++)
+         try
+      {
+         ts[i].join();
+      }
+      catch (Exception e)
+      {
+      }
+      try
+      {
+         Scanner s = new Scanner(new File("sharedfile.txt"));
+         System.out.println("File content:"+ s.useDelimiter("\\z").next());
+      }
+      catch (Exception e)
+      {
+      }
+   }
+}
+// lab19 
+// 1
+import java.net.*;
+
+public class UDPChat extends javax.swing.JFrame
+{
+   
+   public UDPChat()
+   {
+      initComponents();
+   }
+   
+   private void initComponents()
+   {
+      
+      jTextField1 = new javax.swing.JTextField();
+      jScrollPane1 = new javax.swing.JScrollPane();
+      jTextArea1 = new javax.swing.JTextArea();
+      jButton1 = new javax.swing.JButton();
+      jScrollPane2 = new javax.swing.JScrollPane();
+      jTextArea2 = new javax.swing.JTextArea();
+      
+      setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+      
+      jTextField1.setText("jTextField1");
+      
+      jTextArea1.setColumns(20);
+      jTextArea1.setRows(5);
+      jScrollPane1.setViewportView(jTextArea1);
+      
+      jButton1.setText("Send");
+      jButton1.addActionListener(new java.awt.event.ActionListener()
+      {
+         public void actionPerformed(java.awt.event.ActionEvent evt)
+         {
+            jButton1ActionPerformed(evt);
+         }
+      }
+      );
+      
+      jTextArea2.setColumns(20);
+      jTextArea2.setRows(5);
+      jScrollPane2.setViewportView(jTextArea2);
+      
+      javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+      getContentPane().setLayout(layout);
+      layout.setHorizontalGroup(
+      layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+      .addGap(117, 117, 117)
+      .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+      .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 206, Short.MAX_VALUE)
+      .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+      .addGap(135, 135, 135))
+      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+      .addContainerGap()
+      .addComponent(jScrollPane1)
+      .addContainerGap())
+      .addGroup(layout.createSequentialGroup()
+      .addContainerGap()
+      .addComponent(jScrollPane2)
+      .addContainerGap())
+      );
+      layout.setVerticalGroup(
+      layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGroup(layout.createSequentialGroup()
+      .addGap(46, 46, 46)
+      .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+      .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+      .addComponent(jButton1))
+      .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+      .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 379, javax.swing.GroupLayout.PREFERRED_SIZE)
+      .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+      .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+      .addContainerGap())
+      );
+      
+      pack();
+   }
+   // </editor-fold>
+   private void jButton1ActionPerformed(java.awt.event.ActionEvent evt)
+   {
+      // TODO add your handling code here:
+      String message = jTextArea2.getText();
+      try
+      {
+         DatagramSocket s = new DatagramSocket();
+         InetAddress addr = InetAddress.getByName(jTextField1.getText());
+         byte[] bs = message.getBytes();
+         DatagramPacket p = new DatagramPacket(bs, bs.length, addr, 30000);
+         s.send(p);
+      }
+      catch (Exception e)
+      {
+      }
+   }
+   
+   void recev()
+   {
+      int K = 1024;
+      try
+      {
+         DatagramSocket s = new DatagramSocket(30000);
+         byte[] buf = new byte[K];
+         DatagramPacket p = new DatagramPacket(buf, K);
+         while (true)
+         {
+            s.receive(p);
+            String message = new String(p.getData(), 0, p.getLength());
+            InetAddress addr = p.getAddress();
+            jTextArea1.append(addr.toString() + ":");
+            jTextArea1.append(message + "\n");
+         }
+      }
+      catch (Exception e)
+      {
+      }
+   }
+   
+   public static void main(String args[])
+   {
+      try
+      {
+         for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels())
+         {
+            if ("Nimbus".equals(info.getName()))
+            {
+               javax.swing.UIManager.setLookAndFeel(info.getClassName());
+               break;
+            }
+         }
+      }
+      catch (ClassNotFoundException ex)
+      {
+         java.util.logging.Logger.getLogger(UDPChat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      }
+      catch (InstantiationException ex)
+      {
+         java.util.logging.Logger.getLogger(UDPChat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      }
+      catch (IllegalAccessException ex)
+      {
+         java.util.logging.Logger.getLogger(UDPChat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      }
+      catch (javax.swing.UnsupportedLookAndFeelException ex)
+      {
+         java.util.logging.Logger.getLogger(UDPChat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+      }
+      //</editor-fold>
+      
+      java.awt.EventQueue.invokeLater(new Runnable()
+      {
+         public void run()
+         {
+            UDPChat u = new UDPChat();
+            u.setVisible(true);
+            new Thread()
+            {
+               @Override
+               public void run()
+               {
+                  u.recev();
+               }
+            }
+            .start();
+         }
+      }
+      );
+   }
+   
+   // Variables declaration - do not modify                     
+   private javax.swing.JButton jButton1;
+   private javax.swing.JScrollPane jScrollPane1;
+   private javax.swing.JScrollPane jScrollPane2;
+   private javax.swing.JTextArea jTextArea1;
+   private javax.swing.JTextArea jTextArea2;
+   private javax.swing.JTextField jTextField1;
+   // End of variables declaration                   
+   
+}
+
+// 2
+import java.io.*;
+import java.net.*;
+import java.util.*;
+
+public class SimpleHTTPServer
+{
+   
+   private ServerSocket serverSocket;
+   private final int port;
+   
+   public SimpleHTTPServer(int port)
+   {
+      this.port = port;
+   }
+   
+   public void start()
+   {
+      try
+      {
+         serverSocket = new ServerSocket(port);
+         System.out.println("Server started on port "+ port);
+         while (true)
+         {
+            Socket clientSocket = serverSocket.accept();
+            Thread thread = new Thread(() -> handleClient(clientSocket));
+            thread.start();
+         }
+      }
+      catch (IOException e)
+      {
+         e.printStackTrace();
+      }
+   }
+   
+   private void handleClient(Socket clientSocket)
+   {
+      try
+      {
+         BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+         DataOutputStream out = new DataOutputStream(clientSocket.getOutputStream());
+         // Read the request headers
+         Map headers = readHeaders(in);
+         System.out.println(headers);
+         // Check if it's a multipart/form-data request
+         // Send response
+         String response = "HTTP/1.1 200 OK\r\n"
+         + "Content-Type: text/plain\r\n"
+         + "\r\n"
+         + "request received";
+         out.writeBytes(response);
+         in.close();
+         out.close();
+         clientSocket.close();
+      }
+      catch (IOException e)
+      {
+         e.printStackTrace();
+      }
+   }
+   
+   private Map readHeaders(BufferedReader in) throws IOException
+   {
+      Map headers = new HashMap<>();
+      String line;
+      while (!(line = in.readLine()).isEmpty())
+      {
+         String[] parts = line.split(":", 2);
+         if (parts.length == 2)
+         {
+            headers.put(parts[0].trim(), parts[1].trim());
+         }
+      }
+      return headers;
+   }
+   
+   public static void main(String[] args)
+   {
+      SimpleHTTPServer server = new SimpleHTTPServer(8080);
+      server.start();
+   }
+}
+// lab21
+import java.io.*;
+import java.net.*;
+import java.util.*;
+import java.util.concurrent.*;
+
+public class GogameServer
+{
+   
+   Map<String, Set<Integer>> stones = new HashMap<>();
+   
+   class Worker extends Thread
+   {
+      
+      Socket socket;
+      
+      public Worker(Socket s)
+      {
+         socket = s;
+      }
+      final int N = 19;
+      
+      @Override
+      public void run()
+      {
+         try
+         {
+            DataInputStream d = new DataInputStream(socket.getInputStream());
+            String ip = socket.getInetAddress().toString();
+            Set<Integer> coordinates = stones.get(ip);
+            int r = d.readInt();
+            int c = d.readInt();
+            coordinates.add(r * 100 + c);
+            double distance = N * 2;
+            int minr = 0, minc = 0;
+            for (int row = 0; row < N; row++)
+            {
+               for (int col = 0; col < N; col++)
+               {
+                  if (coordinates.contains(row * 100 + col))
+                  {
+                     continue;
+                  }
+                  double dist = Math.sqrt(Math.pow(col - c, 2) + Math.pow(row - r, 2));
+                  if (dist < distance)
+                  {
+                     distance = dist;
+                     minr = row;
+                     minc = col;
+                  }
+               }
+            }
+            coordinates.add(minr * 100 + minc);
+            socket.close();
+            Thread.sleep(1000);
+            sendnum(ip, minr, minc);
+         }
+         catch (Exception e)
+         {
+         }
+      }
+   }
+   
+   final int port = 2311;
+   
+   protected void sendnum(String ip, int r, int c)
+   {
+      new Thread()
+      {
+         @Override
+         public void run()
+         {
+            try
+            {
+               Socket s = new Socket(ip, port);
+               DataOutputStream o = new DataOutputStream(s.getOutputStream());
+               o.writeInt(r);
+               o.writeInt(c);
+            }
+            catch (IOException e)
+            {
+            }
+         }
+      }
+      .start();
+   }
+   ExecutorService pool = Executors.newFixedThreadPool(10);
+   
+   public void receive()
+   {
+      try
+      {
+         ServerSocket ss = new ServerSocket(port);
+         while (true)
+         {
+            Socket s = ss.accept();
+            Worker w = new Worker(s);
+            pool.execute(w);
+         }
+      }
+      catch (Exception e)
+      {
+      }
+   }
+   
+   public static void main(String[] args)
+   {
+      new GogameServer().receive();
+   }
+}
